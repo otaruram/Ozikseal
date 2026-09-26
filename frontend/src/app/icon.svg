@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background: Clean White -->
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  
+  <g transform="translate(256, 256)">
+    <!-- 1. Sharp Geometric Shield -->
+    <path 
+      d="M0 -180 L160 -120 L160 80 L0 220 L-160 80 L-160 -120 Z" 
+      fill="none" 
+      stroke="#000000" 
+      stroke-width="16" 
+      stroke-linejoin="miter" 
+      stroke-miterlimit="10"
+    />
+    
+    <path 
+      d="M0 -150 L130 -100 L130 70 L0 185 L-130 70 L-130 -100 Z" 
+      fill="none" 
+      stroke="#000000" 
+      stroke-width="6" 
+      stroke-dasharray="12,12"
+    />
+
+    <!-- 2. Subtle Microchip Circuit Lines -->
+    <!-- Top left circuit -->
+    <path d="M-130 -40 L-80 -40 L-50 -70 L-50 -100" fill="none" stroke="#000000" stroke-width="8" stroke-linecap="square"/>
+    <circle cx="-50" cy="-100" r="8" fill="#000000"/>
+    <circle cx="-130" cy="-40" r="8" fill="#000000"/>
+
+    <!-- Top right circuit -->
+    <path d="M130 -40 L80 -40 L50 -70 L50 -100" fill="none" stroke="#000000" stroke-width="8" stroke-linecap="square"/>
+    <circle cx="50" cy="-100" r="8" fill="#000000"/>
+    <circle cx="130" cy="-40" r="8" fill="#000000"/>
+
+    <!-- Bottom left circuit -->
+    <path d="M-100 95 L-50 45 L-50 20" fill="none" stroke="#000000" stroke-width="8" stroke-linecap="square"/>
+    <circle cx="-100" cy="95" r="8" fill="#000000"/>
+
+    <!-- Bottom right circuit -->
+    <path d="M100 95 L50 45 L50 20" fill="none" stroke="#000000" stroke-width="8" stroke-linecap="square"/>
+    <circle cx="100" cy="95" r="8" fill="#000000"/>
+
+    <!-- 3. Minimalist Padlock Shape in the Center -->
+    <!-- Padlock Body -->
+    <rect x="-40" y="-10" width="80" height="60" rx="8" fill="#000000"/>
+    
+    <!-- Padlock Shackle -->
+    <path 
+      d="M-24 -10 L-24 -30 A24 24 0 0 1 24 -30 L24 -10" 
+      fill="none" 
+      stroke="#000000" 
+      stroke-width="12" 
+      stroke-linecap="round"
+    />
+    
+    <!-- Keyhole / Chip center -->
+    <rect x="-8" y="10" width="16" height="24" rx="4" fill="#FFFFFF"/>
+    
+    <!-- 4. Vibrant Neon Green Accent Dot -->
+    <!-- Positioned on the top-right corner of the outer shield -->
+    <circle cx="160" cy="-120" r="16" fill="#39ff14"/>
+    
+    <!-- Subtle glow effect for the dot -->
+    <circle cx="160" cy="-120" r="24" fill="#39ff14" opacity="0.3"/>
+    <circle cx="160" cy="-120" r="32" fill="#39ff14" opacity="0.15"/>
+  </g>
+</svg>

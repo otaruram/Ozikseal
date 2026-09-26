@@ -1,0 +1,100 @@
+/* ============================================================================
+   OzikSeal Frontend — Global Styles
+   ============================================================================
+   Design System: Monochrome (black & white) with neon green accents.
+   Framework: Tailwind CSS v4 via Next.js
+   ============================================================================ */
+
+@import "tailwindcss";
+
+/* -----------------------------------------------------------------------
+   Theme Configuration — Custom Design Tokens
+   ----------------------------------------------------------------------- */
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-neon-green: #39ff14;
+  --color-terminal-bg: #0a0a0a;
+  --color-terminal-border: #1a1a1a;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* -----------------------------------------------------------------------
+   Base Styles
+   ----------------------------------------------------------------------- */
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* -----------------------------------------------------------------------
+   Custom Animations
+   ----------------------------------------------------------------------- */
+
+/* Blinking dot for hardware connection status */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--color-neon-green), 0 0 12px var(--color-neon-green);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 2px var(--color-neon-green);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Terminal cursor blink */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Fade-in for success state */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+/* Typewriter effect for hash output */
+@keyframes typewriter-reveal {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+.animate-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter-reveal 0.8s steps(40) forwards;
+}
+
+/* Spinner for loading state */
+@keyframes spin-smooth {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-smooth {
+  animation: spin-smooth 1s linear infinite;
+}

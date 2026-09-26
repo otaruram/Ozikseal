@@ -1,0 +1,31 @@
+# ============================================================================
+# OzikSeal — Git Ignore
+# ============================================================================
+
+# --- Node / Frontend ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# --- Python / Backend ---
+backend/__pycache__/
+backend/venv/
+backend/*.pyc
+backend/.env
+
+# --- Hardware / FPGA ---
+hardware/*.vvp
+hardware/*.vcd
+hardware/quartus/output_files/
+hardware/quartus/db/
+hardware/quartus/incremental_db/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS ---
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+# ============================================================================
+# OzikSeal Backend — Python Dependencies
+# ============================================================================
+# Install with: pip install -r requirements.txt
+# ============================================================================
+
+# --- Core Web Framework ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# --- UART/Serial Communication with FPGA ---
+pyserial>=3.5
+
+# --- Data Validation ---
+pydantic>=2.0
+
+# --- CORS Middleware (included in fastapi, listed for clarity) ---
+# starlette (bundled with fastapi)
