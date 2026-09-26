@@ -134,19 +134,19 @@ export default function FPGAMonitor({ state = "idle", result = null, error = nul
             {/* QR Code + Verified Badge */}
             <div className="flex-grow flex items-end justify-between pt-3 mt-auto border-t border-gray-800">
               {/* QR Code */}
-              <div className="flex flex-col space-y-1.5">
+              <div className="flex flex-col space-y-1.5 max-w-[130px]">
                 <h3 className="text-[10px] text-gray-500 uppercase tracking-[0.2em]">
                   Seal Identity
                 </h3>
-                <div className="bg-white p-1.5 w-max rounded-sm">
+                <div className="bg-white p-1.5 w-max rounded-sm shadow-sm">
                   <QRCodeSVG 
-                    value="https://ozikseal.vercel.app" 
+                    value={`https://ozikseal.vercel.app/verify/TX-${result.payload?.patient_id || "UNKNOWN"}`} 
                     size={68} 
                     level="L" 
                   />
                 </div>
-                <span className="text-[10px] text-zinc-500 font-mono mt-1">
-                  ozikseal.vercel.app
+                <span className="text-[10px] text-zinc-500 font-mono mt-1 truncate" title={`ozikseal.vercel.app/verify/TX-${result.payload?.patient_id}`}>
+                  ozikseal.vercel.app/verify/TX-{result.payload?.patient_id || "UNKNOWN"}
                 </span>
               </div>
 
