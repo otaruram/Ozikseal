@@ -23,7 +23,8 @@ import FPGAMonitor from "@/components/FPGAMonitor";
 // ---------------------------------------------------------------------------
 // Configuration
 // ---------------------------------------------------------------------------
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+// Hardcoded Render Backend URL so it works automatically on any device (HP/PC)
+const API_BASE_URL = "https://ozikseal.onrender.com";
 const LOADING_DELAY_MS = 1500; // Minimum loading time for demo effect
 
 export default function DashboardPage() {
