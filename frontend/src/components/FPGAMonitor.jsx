@@ -140,13 +140,13 @@ export default function FPGAMonitor({ state = "idle", result = null, error = nul
                 </h3>
                 <div className="bg-white p-1.5 w-max rounded-sm shadow-sm">
                   <QRCodeSVG 
-                    value={`https://ozikseal.vercel.app/verify/TX-${result.payload?.patient_id || "UNKNOWN"}`} 
+                    value={`https://ozikseal.vercel.app/verify?hash=${result.sha256_hash}`} 
                     size={68} 
                     level="L" 
                   />
                 </div>
-                <span className="text-[10px] text-zinc-500 font-mono mt-1 truncate" title={`ozikseal.vercel.app/verify/TX-${result.payload?.patient_id}`}>
-                  ozikseal.vercel.app/verify/TX-{result.payload?.patient_id || "UNKNOWN"}
+                <span className="text-[10px] text-zinc-500 font-mono mt-1 truncate" title={`/verify?hash=${result.sha256_hash}`}>
+                  ozikseal.vercel.app/verify
                 </span>
               </div>
 
