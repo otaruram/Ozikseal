@@ -82,16 +82,16 @@ export default function DashboardPage() {
   return (
     <>
       {/* ─── Top Header ─── */}
-      <header className="flex justify-between items-center px-6 lg:px-8 py-4 border-b-2 border-black">
-        <div className="flex items-center gap-4">
+      <header className="flex flex-col md:flex-row justify-between items-center px-6 lg:px-8 py-4 border-b-2 border-black gap-4 md:gap-0">
+        <div className="flex items-center gap-4 text-center md:text-left">
           <img src="/logo.svg" alt="OzikSeal Logo" className="w-8 h-8" />
-          <h1 className="text-lg lg:text-xl font-bold tracking-tight">
+          <h1 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight">
             OzikSeal | Hardware Crypto-Accelerator
           </h1>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-[var(--color-neon-green)] animate-pulse-glow" />
-          <span className="text-xs lg:text-sm font-semibold tracking-wide">
+          <span className="text-xs sm:text-sm font-semibold tracking-wide">
             Status: DE10-Nano Connected
           </span>
         </div>
