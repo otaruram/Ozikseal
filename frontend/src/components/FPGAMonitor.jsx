@@ -22,6 +22,8 @@
 
 "use client";
 
+import { QRCodeSVG } from "qrcode.react";
+
 // ===========================================================================
 // Sub-Component: Loading Spinner
 // ===========================================================================
@@ -50,37 +52,6 @@ function LoadingSpinner() {
   );
 }
 
-// ===========================================================================
-// Sub-Component: Simulated QR Code (SVG pattern)
-// ===========================================================================
-function QRCodePlaceholder() {
-  // A simple deterministic black & white grid that resembles a QR code
-  const pattern = [
-    [1,1,1,0,1,0,1,1,1],
-    [1,0,1,0,0,0,1,0,1],
-    [1,1,1,0,1,0,1,1,1],
-    [0,0,0,0,1,0,0,0,0],
-    [1,0,1,1,0,1,1,0,1],
-    [0,0,0,0,1,0,0,0,0],
-    [1,1,1,0,0,0,1,1,1],
-    [1,0,1,0,1,0,1,0,1],
-    [1,1,1,0,1,0,1,1,1],
-  ];
-
-  return (
-    <div className="w-20 h-20 bg-white p-1.5 border border-gray-700">
-      <svg width="100%" height="100%" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-        {pattern.map((row, y) =>
-          row.map((cell, x) =>
-            cell ? (
-              <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill="black" />
-            ) : null
-          )
-        )}
-      </svg>
-    </div>
-  );
-}
 
 // ===========================================================================
 // Main FPGAMonitor Component
@@ -167,7 +138,16 @@ export default function FPGAMonitor({ state = "idle", result = null, error = nul
                 <h3 className="text-[10px] text-gray-500 uppercase tracking-[0.2em]">
                   Seal Identity
                 </h3>
-                <QRCodePlaceholder />
+                <div className="bg-white p-1.5 w-max rounded-sm">
+                  <QRCodeSVG 
+                    value="https://ozikseal.vercel.app" 
+                    size={68} 
+                    level="L" 
+                  />
+                </div>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">
+                  ozikseal.vercel.app
+                </span>
               </div>
 
               {/* VERIFIED Badge */}
