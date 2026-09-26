@@ -1,19 +1,31 @@
-# OzikSeal — Hardware-Accelerated Digital Trust for Healthcare Claims (BPJS/JKN)
-
-> **A tamper-proof claim integrity system that uses an FPGA chip (Intel DE10-Nano)
-> to perform hardware-level SHA-256 hashing on pharmacy POS transactions.**
+# 🛡️ OzikSeal: Hardware-Accelerated Digital Trust
+> **A Zero-Trust, Hardware-Level Cryptographic Escrow & Anti-Fraud Architecture for National Health Insurance (JKN) Claims.**
 
 ---
 
-## Architecture Overview
+## 🚀 Overview
+**OzikSeal** is an enterprise-grade infrastructure designed to eliminate systemic financial leakage (such as *Phantom Billing*, *Repeat Billing*, and *Upcoding*) in large-scale healthcare ecosystems like BPJS Kesehatan. 
 
-```
-┌─────────────────────┐     HTTP/JSON     ┌──────────────────────┐     UART/USB     ┌─────────────────────┐
-│                     │  ──────────────►  │                      │  ────────────►  │                     │
-│   FRONTEND (UI)     │                   │   BACKEND (Bridge)   │                  │   HARDWARE (FPGA)   │
-│   Next.js + TW CSS  │  ◄──────────────  │   FastAPI + PySerial │  ◄────────────  │   Verilog SHA-256   │
-│                     │     JSON Response │                      │     Hash Result  │   DE10-Nano Board   │
-└─────────────────────┘                   └──────────────────────┘                  └─────────────────────┘
+While conventional systems rely purely on vulnerable software layers, OzikSeal bridges high-level web interfaces with a dedicated physical **FPGA (DE10-Nano)** hardware accelerator. By offloading sensitive cryptographic hashing (**SHA-256**) directly into isolated silicon logic cores, OzikSeal creates a tamper-proof audit trail that is physically immune to remote software tampering or insider manipulation.
+
+---
+
+## 🏗️ System Architecture (Hardware/Software Partitioning)
+
+The architecture is strictly decoupled into three modular pillars to ensure optimal performance, security, and maintainability:
+
+```text
++-----------------------+       UART / USB       +---------------------------+
+|  Frontend (Next.js)   | <--------------------> |  Backend (Python FastAPI) |
+|  - Pharmacy POS UI    |                        |  - Serial Bridge Service  |
++-----------------------+                        +---------------------------+
+                                                               |
+                                                               v  (Raw Payload)
+                                                 +---------------------------+
+                                                 | Hardware FPGA (DE10-Nano) |
+                                                 | - UART RX/TX Modules      |
+                                                 | - Peruri TT07 SHA-256 Core|
+                                                 +---------------------------+
 ```
 
 ### How It Works
