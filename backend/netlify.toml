@@ -1,0 +1,9 @@
+[build]
+  base = "backend"
+  functions = "functions"
+  command = "pip install -r requirements.txt -t .netlify/python-dependencies"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api"
+  status = 200
